@@ -1,0 +1,23 @@
+{
+  "name": "gl-triangle-collision",
+  "version": "1.0.0",
+  "description": "gl swept spehere triangle collision",
+  "main": "dist",
+  "scripts": {
+    "build": "NODE_ENV=production ./node_modules/.bin/babel src -d dist",
+    "watch": "NODE_ENV=production ./node_modules/.bin/babel src --watch -d dist",
+    "test": "jest"
+  },
+  "author": "kevzettler",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-transform-amd-to-commonjs": "^1.4.0",
+    "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {}
+}
