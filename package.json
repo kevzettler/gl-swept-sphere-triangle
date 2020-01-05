@@ -1,6 +1,6 @@
 {
   "name": "gl-triangle-collision",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "gl swept spehere triangle collision",
   "main": "dist",
   "scripts": {
