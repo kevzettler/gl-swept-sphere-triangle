@@ -78,6 +78,7 @@ define([
   TraceInfo.prototype.getTraceEndpoint = function(end) {
     vec3.scale(this.vel, this.t, this.tmp);
     vec3.add(this.start, this.tmp, end);
+    return end;
   };
 
   TraceInfo.prototype.getTraceDistance = function() {
