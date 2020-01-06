@@ -26,18 +26,23 @@ it('works', () => {
     traceSphereTriangle(tri[0], tri[1], tri[2], traceInfo);
   }
 
-  console.log('**********traceInfo.collision*********', traceInfo.collision);
   expect(traceInfo.collision).toBeTruthy();
 
   if(traceInfo.collision) {
     // This will get the position of the sphere when it collided with the closest triangle
     var endpoint = traceInfo.getTraceEndpoint(endPoint);
+    expect(endPoint.length).toEqual(3);
+    expect(endPoint[0]).toEqual(-5)
+    expect(endPoint[1]).toEqual(0)
+    expect(endPoint[2]).toEqual(-5)
 
     // This is the point on the triangle where the sphere collided.
     traceInfo.intersectPoint;
 
-    console.log('**********traceInfo*********', traceInfo.intersectPoint);
-
     expect(traceInfo.intersectPoint).toBeDefined();
+    expect(traceInfo.intersectPoint.length).toEqual(3);
+    expect(traceInfo.intersectPoint[0]).toEqual(-5)
+    expect(traceInfo.intersectPoint[1]).toEqual(0)
+    expect(traceInfo.intersectPoint[2]).toEqual(0)
   }
 });
