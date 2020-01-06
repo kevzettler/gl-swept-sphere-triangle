@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "gl swept spehere triangle collision",
   "main": "dist",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevzettler/gl-swept-sphere-triangle.git"
+  },
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/babel src -d dist",
     "watch": "NODE_ENV=production ./node_modules/.bin/babel src --watch -d dist",
