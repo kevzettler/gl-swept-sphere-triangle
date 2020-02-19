@@ -157,7 +157,7 @@ const traceSphereTriangle = (function() {
   }
 
   function testVertex(p, velSqrLen, t, start, vel, trace) {
-    vec3.subtract(start, p, v);
+    vec3.subtract(v, start, p);
     var b = 2.0*vec3.dot(vel, v);
     var c = vec3.squaredLength(v) - 1.0;
     var newT = getLowestRoot(velSqrLen, b, c, t);
@@ -169,8 +169,8 @@ const traceSphereTriangle = (function() {
   }
 
   function testEdge(pa, pb, velSqrLen, t, start, vel, trace) {
-    vec3.subtract(pb, pa, edge);
-    vec3.subtract(pa, start, v);
+    vec3.subtract(edge, pb, pa);
+    vec3.subtract(v, pa, start);
 
     var edgeSqrLen = vec3.squaredLength(edge);
     var edgeDotVel = vec3.dot(edge, vel);
@@ -284,7 +284,7 @@ const traceSphereTriangle = (function() {
     if (!embedded) {
       // Calculate the intersection point with the plane
       vec3.subtract(planeIntersect, start, norm);
-      vec3.scale(vel, t0, v);
+      vec3.scale(v, vel, t0);
       vec3.add(planeIntersect, v, planeIntersect);
 
       // Is that point inside the triangle?
