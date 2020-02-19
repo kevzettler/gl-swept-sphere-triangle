@@ -117,9 +117,9 @@ const traceSphereTriangle = (function() {
     vec3.normalize(pt1, pt1);
     vec3.normalize(pt2, pt2);
 
-    var a = vec3.dot(pt1, pt0);
-    var b = vec3.dot(pt2, pt1);
-    var c = vec3.dot(pt0, pt2);
+    var a = vec3.dot(pt0, pt1);
+    var b = vec3.dot(pt1, pt2);
+    var c = vec3.dot(pt2, pt0);
 
     var angle = Math.acos(a) + Math.acos(b) + Math.acos(c);
 
@@ -173,11 +173,11 @@ const traceSphereTriangle = (function() {
     vec3.subtract(pa, start, v);
 
     var edgeSqrLen = vec3.squaredLength(edge);
-    var edgeDotVel = vec3.dot(vel, edge);
-    var edgeDotSphereVert = vec3.dot(v, edge);
+    var edgeDotVel = vec3.dot(edge, vel);
+    var edgeDotSphereVert = vec3.dot(edge, v);
 
     var a = edgeSqrLen*-velSqrLen + edgeDotVel*edgeDotVel;
-    var b = edgeSqrLen*(2.0*vec3.dot(v, vel))-2.0*edgeDotVel*edgeDotSphereVert;
+    var b = edgeSqrLen*(2.0*vec3.dot(vel, v))-2.0*edgeDotVel*edgeDotSphereVert;
     var c = edgeSqrLen*(1.0-vec3.squaredLength(v))+edgeDotSphereVert*edgeDotSphereVert;
 
     // Check for intersection against infinite line
@@ -214,7 +214,7 @@ const traceSphereTriangle = (function() {
     var planeD = -(norm[0]*ta[0]+norm[1]*ta[1]+norm[2]*ta[2]);
 
     // Colliding against the backface of the triangle
-    if(vec3.dot(trace.normVel, norm) >= 0) {
+    if(vec3.dot(norm, trace.normVel) >= 0) {
       // Two choices at this point:
 
       // 1) Negate the normal so that it always points towards the start point
@@ -232,10 +232,10 @@ const traceSphereTriangle = (function() {
 
     // Calculate the signed distance from sphere
     // position to triangle plane
-    var distToPlane = vec3.dot(norm, start) + planeD;
+    var distToPlane = vec3.dot(start, norm) + planeD;
 
     // cache this as we’re going to use it a few times below:
-    var normDotVel = vec3.dot(vel, norm);
+    var normDotVel = vec3.dot(norm, vel);
 
     if (normDotVel === 0.0) {
       // Sphere is travelling parrallel to the plane:
