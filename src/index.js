@@ -50,8 +50,8 @@ TraceInfo.prototype.resetTrace = function(start, end, radius) {
   this.invRadius = 1/radius;
   this.radius = radius;
 
-  vec3.set(this.start, start);
-  vec3.set(this.end, end);
+  vec3.copy(this.start, start);
+  vec3.copy(this.end, end);
   vec3.subtract(this.vel, end, start);
   vec3.normalize(this.normVel, this.vel);
 
