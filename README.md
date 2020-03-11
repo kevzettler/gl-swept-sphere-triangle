@@ -40,4 +40,4 @@ if(traceInfo.collision) {
 ## Development roadmap
 ~~The original gist uses a really old version of gl-matrix 1.3.8. Later versions of gl-matrix had non-backwards compatible API changes. This has old copy of gl-matrix has been hard coded in the code base. This was to evaluate if the gist code actually worked. Future iterations of this module will work to bring the dependencies up to speed and review potential performance gains.~~
 
-This module has been updated to a moder version of `gl-matrix` future road map will be purely optimization.
+This module has been updated to a modern version of `gl-matrix` future road map will be purely optimization.
