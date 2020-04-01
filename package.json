@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production ./node_modules/.bin/babel src -d dist",
-    "watch": "NODE_ENV=production ./node_modules/.bin/babel src --watch -d dist",
+    "watch": "NODE_ENV=production ./node_modules/.bin/babel src/* --watch -d dist",
     "test": "jest"
   },
   "author": "kevzettler",

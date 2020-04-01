@@ -44,7 +44,8 @@ export function TraceInfo() {
   this.t = 0;
   this.intersectPoint = vec3.create();
   this.tmp = vec3.create();
-  this.tri = [];
+  this.tmpTri = [];
+  this.intersectTri = [];
 };
 
 TraceInfo.prototype.resetTrace = function(start, end, radius) {
@@ -67,6 +68,7 @@ TraceInfo.prototype.resetTrace = function(start, end, radius) {
 
 TraceInfo.prototype.setCollision = function(t, point) {
   this.collision = true;
+  this.intersectTri = this.tmpTri.slice(0);
   if(t < this.t) {
     this.t = t;
     vec3.scale(this.intersectPoint, point, this.radius);
@@ -197,7 +199,7 @@ const traceSphereTriangle = (function() {
   }
 
   return function(a, b, c, trace) {
-    trace.tri = [a,b,c];
+    trace.tmpTri = [a,b,c];
     var invRadius = trace.invRadius;
     var vel = trace.scaledVel;
     var start = trace.scaledStart;
