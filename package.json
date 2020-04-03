@@ -1,6 +1,6 @@
 {
   "name": "gl-swept-sphere-triangle",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "gl swept spehere triangle collision",
   "main": "dist",
   "repository": {
@@ -12,6 +12,7 @@
     "watch": "NODE_ENV=production ./node_modules/.bin/babel src/* --watch -d dist",
     "test": "jest"
   },
+  "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags",
   "author": "kevzettler",
   "license": "ISC",
   "devDependencies": {
