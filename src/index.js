@@ -163,6 +163,9 @@ function traceSphereTriangle(a, b, c, trace) {
 
   // Colliding against the backface of the triangle
   if(vec3.dot(norm, trace.normVel) >= 0) {
+    // TODO KZ the normal calclulation on the gl-swepth-sphere is backwords or not complete...
+//    debugger;
+
     // Two choices at this point:
 
     // 1) Negate the normal so that it always points towards the start point
