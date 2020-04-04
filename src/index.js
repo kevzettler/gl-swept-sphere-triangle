@@ -157,7 +157,7 @@ function traceSphereTriangle(a, b, c, trace) {
   // This may be better to do as a pre-process
   vec3.subtract(pab, tb, ta);
   vec3.subtract(pac, tc, ta);
-  vec3.cross(norm, pab, pac);
+  vec3.cross(norm, pac, pab);
   vec3.normalize(norm, norm);
   var planeD = -(norm[0]*ta[0]+norm[1]*ta[1]+norm[2]*ta[2]);
 
