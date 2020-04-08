@@ -16,6 +16,9 @@ export default function TraceInfo() {
   this.tmp = vec3.create();
   this.tmpTri = [];
   this.intersectTri = [];
+
+  this.tmpTriNorm = [];
+  this.intersectTriNorm = [];
 };
 
 TraceInfo.prototype.resetTrace = function(start, end, radius) {
@@ -39,6 +42,7 @@ TraceInfo.prototype.resetTrace = function(start, end, radius) {
 TraceInfo.prototype.setCollision = function(t, point) {
   this.collision = true;
   this.intersectTri = this.tmpTri.slice(0);
+  this.intersectTriNorm = this.tmpTriNorm.slice(0);
   if(t < this.t) {
     this.t = t;
     vec3.scale(this.intersectPoint, point, this.radius);
