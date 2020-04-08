@@ -1,6 +1,6 @@
 {
   "name": "gl-swept-sphere-triangle",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "gl swept spehere triangle collision",
   "main": "dist",
   "repository": {
