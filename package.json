@@ -25,6 +25,7 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "gl-matrix": "^3.2.1"
+    "gl-matrix": "^3.2.1",
+    "primitive-geometry": "^1.1.0"
   }
 }
